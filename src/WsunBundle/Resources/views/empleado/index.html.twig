@@ -1,0 +1,82 @@
+{% extends 'WsunBundle:Default:index.html.twig'%}
+
+{% block bloque1 %}
+<div class="box">
+     <div class="panel panel-azul">
+        <fieldset>
+             <div class="panel-heading">
+                <strong><span>Lista de Empleados</span></strong>
+            </div> 
+            <div class="count">
+                <span class="label label-primary">
+               Total: {{ pagination.getTotalItemCount }}
+                </span>
+            </div><br/>
+    <table class="table table-bordered">
+        <tr>
+            <th>{{ knp_pagination_sortable(pagination, 'N°', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'CEDULA', '') }}</th>
+             <th>{{ knp_pagination_sortable(pagination, 'NOMBRE EMPLEADO', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'APELLIDO EMPLEADO', '') }}</th>
+           <th>{{ knp_pagination_sortable(pagination, 'CONTACTO', '') }}</th>
+             <th>{{ knp_pagination_sortable(pagination, 'ACCIONES', '') }}</th>
+        </tr>
+   
+        <tbody>
+       {% set contador= 1%}
+        {% for empleado in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>{{ contador }}</td>
+
+
+                <td>{{ empleado.cedulaEmp }}</td>
+                <td>{{ empleado.nombreEmp }}</td>
+                <td>{{ empleado.apellidoEmp }}</td>
+                <td>{{ empleado.contacto }}</td>
+                
+                <td>
+                        <div class="row">
+                        <div class="col-md-3">
+                        
+                         <a href="{{ path('empleado_show', { 'id': empleado.id }) }}">Mostrar</a>
+                        </div>
+                         <div class="col-sm-3">
+                         <a href="{{ path('empleado_edit', { 'id': empleado.id }) }}">Editar</a>
+                        </div>
+                      
+                        <div class="col-md-3">
+                         <a href= "{{ path('cursos_index', { 'id': empleado.id }) }}" class="btn btn-primary btn-sm">Cursos</a>
+                        </div>
+
+                         <div class="col-md-3">
+                         <a href= "{{ path('titulo_index', { 'id': empleado.id }) }}" class="btn btn-primary btn-sm">Titulo</a>
+                        </div>
+
+                        <div class="col-md-3">
+                        <a href= "{{ path('roldepago_index', { 'id': empleado.id }) }}" class="btn btn-primary btn-sm">Rol de Pago</a>
+                        </div>
+                    </div>          
+
+
+                </td>
+            </tr>
+         {% set contador= contador+1%}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('empleado_new') }}">Ingresar nuevo empleado</a>
+        </li>
+    </ul>
+  </div>  
+{% endblock %}
+{% block javascripts %}
+   
+    <script>    
+    $('#btn1').on("click",function(){
+        
+    });
+    </script>
+{% endblock %}

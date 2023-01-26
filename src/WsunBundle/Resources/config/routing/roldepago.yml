@@ -1,0 +1,28 @@
+roldepago_index:
+    path:    /{id}/
+    defaults: { _controller: "WsunBundle:Roldepago:index" }
+    methods:  GET
+
+roldepago_show:
+    path:     /{id}/show
+    defaults: { _controller: "WsunBundle:Roldepago:show" }
+    methods:  GET
+
+roldepago_new:
+    path:     /{id}/new
+    defaults: { _controller: "WsunBundle:Roldepago:new" }
+    methods:  [GET, POST]
+
+roldepago_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WsunBundle:Roldepago:edit" }
+    methods:  [GET, POST]
+
+roldepago_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WsunBundle:Roldepago:delete" }
+    methods:  DELETE
+roldepago_pdf:
+    path:     /{id}/exportar
+    defaults: { _controller: "WsunBundle:Roldepago:exportarPdf" }
+    methods:  GET

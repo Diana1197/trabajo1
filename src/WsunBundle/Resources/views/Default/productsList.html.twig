@@ -1,0 +1,44 @@
+{% extends 'WsunBundle:Default:index.html.twig'%}
+
+{% block bloque1 %}
+
+<div class="col-md-3">
+<h1>CATEGORIAS</h1>
+  <div id="MainMenu">
+    <div class="list-group panel">
+	{% for cat in categoria %}
+		<a href="#{{cat.id}}" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">{{(cat.N1)}}</a>
+		<div class="collapse" id="{{cat.id}}">fff
+			{% if (cat.N2 is not null ) %}
+				<a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1">{{(cat.N2)}}</a>
+     			{% endif %}
+		</div>
+
+	{% endfor%}
+    </div>
+</div>
+ <div class="dropdown">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Link 1</a>
+    <a class="dropdown-item" href="#">Link 2</a>
+    <a class="dropdown-item" href="#">Link 3</a>
+  </div>
+</div> 
+{%endblock%}
+{% block javascripts %}
+    <script type="text/javascript">
+         $(window).ready(function() {
+             $("#seleccionarTodos").click(function() {
+            if ($(this).is(':checked')) {
+                $(".selProducto").prop("checked", true);
+            }else{
+                $(".selProducto").prop("checked", false);
+            }
+        });
+        });     
+            
+    </script>
+{% endblock %}

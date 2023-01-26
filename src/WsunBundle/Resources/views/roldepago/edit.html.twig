@@ -1,0 +1,91 @@
+{% extends 'WsunBundle:Default:index.html.twig'%}
+
+{% block body %}
+    <div class="box">
+    <h3> <legend class="text-center header">Editar Rol de pago</legend></h3>
+        <div class="container-fluid">
+    {{ form_start(edit_form,{'class':"form-horizontal",'method':"POST"}) }}  
+
+
+     <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(edit_form.fecha)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.fecha,{'attr':{'class':'form-control','placeholder':'Fecha del pago '} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(edit_form.fechaPag)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.fechaPag,{'attr':{'class':'form-control','placeholder':'Fecha rol de pago'} }) }}
+    </div>
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(edit_form.sueldoEmp)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.sueldoEmp,{'attr':{'class':'form-control','placeholder':'Sueldo'} }) }}
+    </div>  
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(edit_form.fondosRes)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.fondosRes,{'attr':{'class':'form-control','placeholder':'Fondos de reserva'} }) }}
+    </div>  
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(edit_form.decimoTer)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.decimoTer,{'attr':{'class':'form-control','placeholder':'Decimo tercero'} }) }}
+    </div>  
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(edit_form.decimoCuar)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.decimoCuar,{'attr':{'class':'form-control','placeholder':'Decimo cuarto'} }) }}
+    </div>  
+
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(edit_form.aporteIess)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.aporteIess,{'attr':{'class':'form-control','placeholder':'aporteIess'} }) }}
+    </div>
+
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(edit_form.quirografarioIess)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.quirografarioIess,{'attr':{'class':'form-control','placeholder':'quirografarioIess'} }) }}
+    </div>
+
+        <div class="form-group col-lg-6">
+    <div class="input-group-addon">{{ form_label(edit_form.anticipoTipoc)}}<span class="text-danger">*</span></div>
+    {{ form_widget(edit_form.anticipoTipoc,{'attr':{'class':'form-control','placeholder':'anticipoTipoc'} }) }}
+    </div>  
+
+    <div class="form-group col-lg-6">
+    <div class="input-group-addon">{{ form_label(edit_form.retencionJud)}}<span class="text-danger">*</span></div>
+    {{ form_widget(edit_form.retencionJud,{'attr':{'class':'form-control','placeholder':'retencionJud'} }) }}
+    </div>  
+
+    <div class="form-group col-lg-6">
+    <div class="input-group-addon">{{ form_label(edit_form.prestamoHipo)}}<span class="text-danger">*</span></div>
+    {{ form_widget(edit_form.prestamoHipo,{'attr':{'class':'form-control','placeholder':'prestamoHipo'} }) }}
+    </div>  
+
+    <div class="form-group col-lg-6">
+    <div class="input-group-addon">{{ form_label(edit_form.otrosDes)}}<span class="text-danger">*</span></div>
+    {{ form_widget(edit_form.otrosDes,{'attr':{'class':'form-control','placeholder':'otrosDes'} }) }}
+    </div>  
+
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(edit_form.totalRecibir)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.totalRecibir,{'attr':{'class':'form-control','placeholder':'totalRecibir'} }) }}
+    </div>
+
+
+    <div class="form-group col-lg-6">
+        <input type="submit" value="Edit" />
+         {{ form_end(edit_form) }}
+    </div> 
+
+    <ul>
+        <table>
+        <a href="{{ path('empleado_index') }}" ><i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i> Vuelva a la lista</a></td></tr>
+    
+            
+    </table> 
+    </ul>
+
+{% endblock %}

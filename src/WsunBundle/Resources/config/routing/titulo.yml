@@ -1,0 +1,24 @@
+titulo_index:
+    path:    /{id}/
+    defaults: { _controller: "WsunBundle:Titulo:index" }
+    methods:  GET
+
+titulo_show:
+    path:     /{id}/show
+    defaults: { _controller: "WsunBundle:Titulo:show" }
+    methods:  GET
+
+titulo_new:
+    path:     /{id}/new
+    defaults: { _controller: "WsunBundle:Titulo:new" }
+    methods:  [GET, POST]
+
+titulo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WsunBundle:Titulo:edit" }
+    methods:  [GET, POST]
+
+titulo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WsunBundle:Titulo:delete" }
+    methods:  DELETE

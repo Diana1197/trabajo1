@@ -1,0 +1,52 @@
+{% extends 'WsunBundle:Default:index.html.twig'%}
+
+
+{% block body %}
+  <div class="box">
+    <h1>Crear Titulo</h1>
+
+        {{ form_start(form) }}
+
+
+    <div class="form-group col-lg-6">
+     <div class="input-group-addon">{{ form_label(form.instucion)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.instucion,{'attr':{'class':'form-control','placeholder':'Instucion'} }) }}
+    </div>  
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.nombretitulo)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.nombretitulo,{'attr':{'class':'form-control','placeholder':'Nombre del titulo'} }) }}
+    </div>
+
+     <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.fechaaprobacion)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.fechaaprobacion,{'attr':{'class':'form-control','placeholder':'Fecha de aprobacion'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.observacion)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.observacion,{'attr':{'class':'form-control','placeholder':'Observacion'} }) }}
+    </div>
+    
+
+        {{ form_widget(form) }}
+        <input type="submit" value="Crear" />
+        {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('titulo_index', { 'id': id }) }}">Volver al listado</a>
+        </li>
+    </ul>
+    {% endblock %}
+
+  {% block javascripts %}
+      {{ parent() }}
+<script type="text/javascript">
+   
+     $(window).ready(function(){
+         
+      
+    }); 
+ </script>
+{% endblock %}
+

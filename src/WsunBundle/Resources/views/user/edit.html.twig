@@ -1,0 +1,71 @@
+{% extends 'WsunBundle:Default:index.html.twig'%}
+
+{% block bloque1 %}
+<div class="box">
+<div class="panel panel-azul">
+    <fieldest>
+    <legend class="text-center header"><strong><span>Edición</span> Usuario</strong></legend>
+    
+    {{ form_start(edit_form,{'class':"form-horizontal",'method':"POST"})}}
+    <table  width="90%" cellpadding="10"  > 
+         <tr>
+                <td > <span class="help-block text-muted text-center" > {{ form_label(edit_form.username)}}</td>
+                <td> {{ form_widget(edit_form.username) }}</td>
+        </tr>
+		<div class="alert alert-info">
+		  <strong> Ingresar Password unicamente si necesita modificarlo.</strong>
+		</div>
+		<tr>
+			<td>{{form_label(edit_form.password.first)}}</td>
+			<td>{{ form_widget(edit_form.password.first) }}</td>
+		</tr>
+		<tr>
+			<td>{{form_label(edit_form.password.second)}}</td>
+			<td>{{ form_widget(edit_form.password.second) }}{{form_errors(edit_form.password.first)}}.</td>
+		</tr>
+	 
+        <tr>
+                <td > <span class="help-block text-muted text-center" > {{ form_label(edit_form.ruc)}}</td>
+                <td> {{ form_widget(edit_form.ruc   ) }}</td>
+        </tr>
+      
+	 <tr>
+                <td > <span class="help-block text-muted text-center" > {{ form_label(edit_form.correo)}}</td>
+                <td> {{ form_widget(edit_form.correo) }}</td>
+        </tr>
+		
+        <tr>
+                <td > <span class="help-block text-muted text-center" > {{ form_label(edit_form.user_roles)}}</td>
+                <td> {{ form_widget(edit_form.user_roles) }}</td>
+        </tr>
+        <div class="row">
+            <div class="col-md-3">
+            <input class="btn btn-info" type="submit" value="Edit" />
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-info" href="{{ path('admin_user_index') }}">Regresar</a>
+            </div>
+             </div>
+
+    </table>
+    </fieldest>    
+    {{ form_end(edit_form) }}
+            
+    <div class="col-md-3">
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+     </div>
+	  </div>  </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+$(document).ready(function () {
+            
+
+   
+});
+        </script>
+{% endblock %}

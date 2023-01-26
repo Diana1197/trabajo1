@@ -1,0 +1,81 @@
+{% extends 'WsunBundle:Default:index.html.twig'%}
+
+{% block body %}
+  <div class="box">
+
+    <h1>Nuevo Empleado</h1>
+
+    {{ form_start(form) }}
+    <div class="form-group col-lg-6">
+
+
+        <div class="input-group-addon">{{ form_label(form.cedulaEmp)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.cedulaEmp,{'attr':{'class':'form-control','placeholder':'Cédula'} }) }}
+    </div>  
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.nombreEmp)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.nombreEmp,{'attr':{'class':'form-control','placeholder':'Nombre'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.apellidoEmp)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.apellidoEmp,{'attr':{'class':'form-control','placeholder':'Apellido'} }) }}
+    </div>
+
+     <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.telefonoEmp)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.telefonoEmp,{'attr':{'class':'form-control','placeholder':'Telefono  '} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.direccion)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.direccion,{'attr':{'class':'form-control','placeholder':'Dirección'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.email)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.email,{'attr':{'class':'form-control','placeholder':'E-mail'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+         <div class="input-group-addon">{{ form_label(form.cargoEmp)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.cargoEmp,{'attr':{'class':'form-control','placeholder':'Cargo'} }) }}
+    </div>
+
+     <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.gradoEmp)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.gradoEmp,{'attr':{'class':'form-control','placeholder':'Grado'} }) }}
+    </div>
+
+     <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.sueldo)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.sueldo,{'attr':{'class':'form-control','placeholder':'Sueldo '} }) }}
+    </div>
+
+     <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.contacto)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.contacto,{'attr':{'class':'form-control','placeholder':'Contacto '} }) }}
+    </div>
+          {{ form_widget(form) }}
+        <input type="submit" value="Crear" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('empleado_index') }}">Volver</a>
+        </li>
+    </ul>
+{% endblock %}
+
+  {% block javascripts %}
+      {{ parent() }}
+<script type="text/javascript">
+   
+     $(window).ready(function(){
+         
+      
+    }); 
+ 
+  
+</script>
+{% endblock %}

@@ -1,0 +1,54 @@
+      
+entradas_list:
+    path: /pruebas/entradas/
+    defaults: { _controller: WsunBundle:Default:entradas}
+wsun_homepage:
+    path:     /
+    defaults: { _controller: WsunBundle:Default:index }
+    methods:  GET
+    
+login:
+    path: /login
+    defaults: { _controller: "WsunBundle:Security:login" }
+login_check:
+    path: /login_check
+logout:
+    path: /logout
+   
+login2:
+    path:     /entrar
+    defaults: { _controller: WsunBundle:Security:login }    
+wsun_contactos:
+    path:  /contactos
+    defaults: { _controller: WsunBundle:Default:contactos }
+        
+wsun_admin_user:
+        resource: "@WsunBundle/Resources/config/routing/user.yml"
+        prefix:   /admin/user
+wsun_admin_role:
+        resource: "@WsunBundle/Resources/config/routing/role.yml"
+        prefix:   /admin/role
+
+WsunAnnotations:
+    resource: "@WsunBundle/Controller/"
+    prefix:   /
+    type:     annotation         
+wsun_buscar:
+    path:     /buscar
+    defaults: { _controller: WsunBundle:Producto:buscar }
+    
+wsun_empleado:
+    resource: "@WsunBundle/Resources/config/routing/empleado.yml"
+    prefix:   /admin/empleado
+
+wsun_cursos:
+    resource: "@WsunBundle/Resources/config/routing/cursos.yml"
+    prefix:   /cursos
+    
+wsun_titulo:
+    resource: "@WsunBundle/Resources/config/routing/titulo.yml"
+    prefix:   /titulo
+
+wsun_roldepago:
+    resource: "@WsunBundle/Resources/config/routing/roldepago.yml"
+    prefix:   /roldepago

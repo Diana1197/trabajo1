@@ -1,0 +1,9 @@
+services:
+    user.listener:
+        class: WsunBundle\Listener\SearchIndexer
+        arguments: ["@security.token_storage"]        
+        tags:
+           - { name: doctrine.event_listener, event: prePersist }
+    sistema_de_correos:
+        class: WsunBundle\Services\Correo
+        arguments: [ '@service_container' ]       

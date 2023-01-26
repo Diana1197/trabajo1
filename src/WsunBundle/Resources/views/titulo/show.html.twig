@@ -1,0 +1,54 @@
+{% extends 'WsunBundle:Default:index.html.twig'%}
+{% block bloque1 %}
+<div class="box">
+    <div class="panel panel-azul">
+    <fieldest>
+    <legend class="text-center header">Datos de titulo</legend>
+        <div class="container-fluid">
+        <div class="row   text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Instuciòn:</label>
+          <div class="col-sm-4 right" >{{ titulo.instucion }}</div>
+          <div class="col-sm-2"></div>
+        </div>  
+
+        <div class="row   text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Nombre del titulo:</label>
+          <div class="col-sm-4 right" >{{ titulo.nombretitulo }}</div>
+          <div class="col-sm-2"></div>
+        </div>
+         
+        <div class="row text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Fechaa de probacion:</label>
+          <div class="col-sm-4 right" >{{ titulo.fechaaprobacion.date |date('Y-m-d')  }}</div>
+          <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row   text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Observaciòn:</label>
+          <div class="col-sm-4 right" >{{ titulo.observacion }}</div>
+          <div class="col-sm-2"></div>
+        </div>
+
+
+        <br>
+        <div class="row">
+        <a href="{{ path('titulo_index', { 'id': id }) }}">Volver al listado</a>
+        <div class="col-md-4"><a href="{{ path('titulo_edit', { 'id': titulo.id }) }}">Editar</a></div>
+        
+
+
+    </fieldest>
+    
+      </div> </div> 
+{% endblock %}
+{% block javascripts %}
+    
+    <script>    
+  
+    </script>
+    
+{% endblock %}

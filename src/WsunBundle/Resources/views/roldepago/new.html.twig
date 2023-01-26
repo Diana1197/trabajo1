@@ -1,0 +1,93 @@
+{% extends 'WsunBundle:Default:index.html.twig'%}
+
+{% block body %}
+  <div class="box">
+
+    <h1>Rolde pago</h1>
+
+    {{ form_start(form) }}
+    
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.fecha)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.fecha,{'attr':{'class':'form-control','placeholder':'Fecha'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.fechaPag)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.fechaPag,{'attr':{'class':'form-control','placeholder':'Fecha pago'} }) }}
+    </div>
+ 
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.sueldoEmp)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.sueldoEmp,{'attr':{'class':'form-control','placeholder':'Sueldo'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.fondosRes)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.fondosRes,{'attr':{'class':'form-control','placeholder':'Fondos de reserva'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.decimoTer)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.decimoTer,{'attr':{'class':'form-control','placeholder':'Decimo tercero'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.decimoCuar)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.decimoCuar,{'attr':{'class':'form-control','placeholder':'Decimo cuarto'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.aporteIess)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.aporteIess,{'attr':{'class':'form-control','placeholder':'Aporte Iess'} }) }}
+    </div>
+
+     <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.quirografarioIess)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.quirografarioIess,{'attr':{'class':'form-control','placeholder':'Quirografario al Iess'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.anticipoTipoc)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.anticipoTipoc,{'attr':{'class':'form-control','placeholder':'Anticipo Tipo C'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.retencionJud)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.retencionJud,{'attr':{'class':'form-control','placeholder':'retencionJud'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.prestamoHipo)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.prestamoHipo,{'attr':{'class':'form-control','placeholder':'prestamoHipo'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.otrosDes)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.otrosDes,{'attr':{'class':'form-control','placeholder':'otrosDes'} }) }}
+    </div>
+
+
+
+                {{ form_widget(form) }}
+        <input type="submit" value="Crear" />
+      
+      
+
+    <ul>
+        <li>
+           
+        </li>
+    </ul>
+    {% endblock %}
+
+  {% block javascripts %}
+      {{ parent() }}
+<script type="text/javascript">
+   
+     $(window).ready(function(){
+         
+      
+    }); 
+ </script>
+{% endblock %}

@@ -1,0 +1,24 @@
+cursos_index:
+    path:    /{id}/
+    defaults: { _controller: "WsunBundle:Cursos:index" }
+    methods:  GET
+
+cursos_show:
+    path:     /{id}/show
+    defaults: { _controller: "WsunBundle:Cursos:show" }
+    methods:  GET
+
+cursos_new:
+    path:     /{id}/new
+    defaults: { _controller: "WsunBundle:Cursos:new" }
+    methods:  [GET, POST]
+
+cursos_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "WsunBundle:Cursos:edit" }
+    methods:  [GET, POST]
+
+cursos_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "WsunBundle:Cursos:delete" }
+    methods:  DELETE

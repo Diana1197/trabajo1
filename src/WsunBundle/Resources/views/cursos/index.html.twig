@@ -1,0 +1,72 @@
+{% extends 'WsunBundle:Default:index.html.twig'%}
+
+{% block bloque1 %}
+<div class="box">
+<div class="panel panel-azul">
+
+<fieldset>
+             <div class="panel-heading">
+                <strong><span> Lista de cursos</span></strong>
+            </div> 
+            <div class="count">
+                <span class="label label-primary">
+               Total: {{ pagination.getTotalItemCount }}
+                </span>
+            </div><br/>
+             <table class="table table-bordered">
+            <tr>
+
+            <th>{{ knp_pagination_sortable(pagination, 'N°', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Tipo', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Institucion', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Fecha de ingreso', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Fecha de finalizaciòn', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Duraciòn', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Acciones', '') }}</th>
+
+            </tr>
+        <tbody>
+        {% set contador= 1%}
+        {% for curso in pagination %}
+        <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>{{ contador }}</td>
+
+{#              <td><a href="{{ path('cursos_show', { 'id': cursos.id }) }}">{{ cursos.id }}</a></td>#}
+                <td>{{ curso.tipo }}</td>
+                <td>{{ curso.nombreCurso }}</td>
+                <td>{{ curso.institucion }}</td>
+                <td>{% if curso.fechaIngreso %}{{ curso.fechaIngreso|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if curso.fechaFin %}{{ curso.fechaFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ curso.duracion }}</td>
+                 <td>
+
+                        <div class="row">
+                        <div class="col-md-3">
+                         <a href="{{ path('cursos_show', { 'id': curso.id }) }}">ver</a>
+                        </div>
+                         <div class="col-sm-3">
+                         <a href="{{ path('cursos_edit', { 'id': curso.id }) }}">Editar</a>
+                        </div>
+                
+                </td>
+        
+             {% set contador= contador+1%}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+          <a href="{{ path('cursos_new', { 'id': id }) }}"> <span class="glyphicon glyphicon-file"> Nuevo curso</span></a>
+    </div> </div>       
+        </li>
+    </ul>
+{% endblock %}
+{% block javascripts %}
+   
+    <script>    
+    $('#btn1').on("click",function(){
+        
+    });
+    </script>
+    {% endblock %}

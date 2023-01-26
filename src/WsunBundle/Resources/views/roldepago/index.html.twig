@@ -1,0 +1,62 @@
+{% extends 'WsunBundle:Default:index.html.twig'%}
+
+{% block bloque1 %}
+<div class="box">
+     <div class="panel panel-azul">
+        <fieldset>
+             <div class="panel-heading">
+                <strong><span>Rol de pagos</span></strong>
+            </div> 
+            <div class="count">
+                <span class="label label-primary">
+               Total: {{ pagination.getTotalItemCount }}
+                </span>
+            </div><br/>
+            
+    <table class="table table-bordered">
+        <tr>
+            <th>{{ knp_pagination_sortable(pagination, 'N°', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Fecha', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Fecha del rol de pago', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Acciones', '') }}</th>
+        </tr>
+   
+        <tbody>
+       {% set contador= 1%}
+        {% for roldepago in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+                <td>{{ contador }}</td>
+
+                <td>{% if roldepago.fecha %}{{ roldepago.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if roldepago.fecha %}{{ roldepago.fechaPag|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                        <div class="row">
+                        <div class="col-md-3">
+                         <a href="{{ path('roldepago_show', { 'id': roldepago.id }) }}">Mostrar</a>
+                        </div>
+                         <div class="col-sm-3">
+                         <a href="{{ path('roldepago_edit', { 'id': roldepago.id }) }}">Editar</a>
+                        </div>
+                      
+                </td>
+         {% set contador= contador+1%}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('roldepago_new', { 'id': id }) }}"> <span class="glyphicon glyphicon-file"> Nuevo Rol de pago</span></a>
+       </div> </div>       
+        </li>
+    </ul>
+ 
+{% endblock %}
+{% block javascripts %}
+   
+    <script>    
+    $('#btn1').on("click",function(){
+        
+    });
+    </script>
+{% endblock %}

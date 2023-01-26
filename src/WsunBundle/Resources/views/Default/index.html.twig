@@ -1,0 +1,126 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+  
+    <div class="encabezado">
+      
+      <div style="width:30%; float:right; display:block;">
+      <form class="navbar-form navbar-left" role="search" onsubmit="return buscar_global();">
+            <input id='buscar_input' type="text" class="form-control" placeholder="Buscar" value="{{app.session.get('VALOR_BUSQUEDA','')}}"/>
+            <button class="btn btn-default" type="button" onclick='buscar_global(); return false;'>
+            <span class="glyphicon glyphicon-search"></span>
+            </button>
+      </form>
+    </div>
+    </div>
+
+    <nav>
+        <ul class="nav">
+            <li class="active"><a href="{{path('wsun_homepage')}}">Home</a></li>
+           
+           
+            
+            {% if( is_granted('ROLE_ADMIN'))%}
+                <li ><a href="#">Administrador</a>
+                    <ul>
+                        <li ><a href ="{{path('admin_user_index')}}"><span class="icon-user">Usuarios</span></a></li>
+                        <li><a href ="{{path('empleado_index')}}"><span class="icon-desktop">Empleado</span></a></li>
+                        
+                       <!-- <li><a href ="{#{path('empresa_index')}#}"><span class="icon-desktop">Empresa</span></a></li>
+                        <li><a href ="{#{path('parametrodepartamento_index')}#}"><span class="icon-home">Parametro de Departamento</span></a></li>
+                        <li><a href ="{#{path('admin_departamento_index')}#}"><span class="icon-home">Departamentos</span></a></li>
+                        <li><a href ="{#{path('admin_producto_index')}#}"><span class="icon-print">Productos</span></a></li>
+                        <li><a href ="{#{path('admin_categoria_index')}#}"><span class="icon-list">Categoria</span></a></li>
+                        <li><a href ="{#{path('admin_productos_empresa_index',{'id' : 0|default('1')})}#}"><span>Agregar Productos</span></a></li>
+                       <li><a href ="{#{path('admin_reportes')}#}"><span class="icon-resize-full">Reportes</span></a></li>
+                   -->
+                    </ul>
+                </li>
+            {% endif %}
+            <li style="float:left; position: relative; width: 10px;">
+                {% if app.user %}
+                    {% include 'WsunBundle:Default:usuario.html.twig'%}
+                {% endif %}
+                {% if not app.user and not is_granted('ROLE_USER') %}
+            <li><a href="{{path('login')}}"> <span class="icon-user"></span>&nbsp;Iniciar sesión</a>
+                {% endif %}
+            </li>
+        </ul>
+    </nav>
+
+<div id="slider">
+  
+    {% block bloque1 %}
+    <div class="box">
+
+                <section id ="miSlider" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#miSlider " data-slide-to="0" class="active"></li>
+                        <li data-target="#miSlider" data-slide-to="1"></li>
+                        <li data-target="#miSlider" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active"><img src="{{asset('../img/slider/1.png')}}" alt="First Slide"></div>
+                        <div class="item"><img src="{{asset('../img/slider/2.png')}}" alt="Second Slide"></div>
+                        <div class="item"><img src="{{asset('../img/slider/3.png')}}" alt="Third Slide"></div>
+                    </div>
+                    <a class="carousel-control left" href="#miSlider" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="carousel-control right" href="#miSlider" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </section>
+            </div>
+<!--</div>-->
+    <div class="row">
+            <div class="col-sm-12">
+                {#% render(controller('WsunBundle:Producto:carrusel',{tipo:1}))%#}
+            </div>
+    </div>
+    
+    {% endblock %}
+    
+</div>
+ </div> 
+ <div id="pie">
+     <h5>Guaranda</h5>
+                Todos los derechos reservados
+</div>
+
+    
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+   <script type="text/javascript">
+    $('#btn1').on("click",function(){
+        alert("Hola");
+    });
+    
+    $("#wsunbundle_empresa_credito").checked(function(){
+     
+        });
+    
+    function Calc(){
+        
+        var cant = $('#detallepedido_cantidad').val();
+        var valunit = $('#detallepedido_valorUnitario').val();
+        var n=valunit.replace(",",".");
+        var total=cant*n;
+        $('#detallepedido_valorTotal').val(total);
+    }
+    buscar_global = function() {
+        if ($('#buscar_input').val() !== '') {
+            window.location = '{{ path('wsun_buscar') }}?valor=' + $('#buscar_input').val();
+        } else {
+            window.location = '{{ path('wsun_buscar') }}';
+        }
+        return false;
+    };
+    
+    
+    
+    </script>
+    
+{% endblock %}

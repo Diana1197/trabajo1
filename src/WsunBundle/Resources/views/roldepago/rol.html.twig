@@ -1,0 +1,111 @@
+ <div style="text-align: right;"><img src="C:/wamp64/www/wsun1-master/web/images/cabecera.png" alt="" /></div>
+          
+          <div align="center">
+          <h3>Rol de pagos</h3>
+
+         <h3 width="50px"><a><b>Mes del rol:</b></a>{{ rol[0].fechaPag.date |date('Y-m-d')  }}</h3> 
+      </div>
+
+<div>
+    
+    <table  border="0"; aline="center"; width="300px">
+        <tr>
+            <td width="150px"> &nbsp;</td>
+            <td width="150px"><a><b>Fecha de  pago:</b></a></td>
+            <td width="100px">{{ rol[0].fecha.date |date('Y-m-d')  }}</td>
+            <td width="150px"> &nbsp;</td>
+            <td width="20px"><strong>Telefono:</strong></td>
+            <td width="100px">{{rol[0].telefonoEmp}}</td>
+        </tr>
+        <tr>
+            <td width="150px"> &nbsp;</td>
+            <td width="20px"><strong>Nombre:</strong></td>
+            <td width="100px">{{rol[0].nombreEmp}}</td>
+            <td width="150px">&nbsp;</td>
+            <td width="20px"><strong>Direcciòn:</strong></td>
+            <td width="100px">{{rol[0].direccion}}</td>
+        </tr>
+        <tr>
+            <td width="150px"> &nbsp;</td>
+            <td width="20px"><strong>Apellido:</strong></td>
+            <td width="100px">{{rol[0].apellidoEmp}}</td>
+            <td width="150px">&nbsp;</td>
+            <td width="20px"><strong>E-mail:</strong></td>
+            <td width="100px">{{rol[0].email}}</td>
+        </tr>
+        <tr>
+            <td width="150px"> &nbsp;</td>
+            <td width="20px"><strong>Cedula:</strong></td>
+            <td width="100px">{{rol[0].cedulaEmp}}</td>
+            <td width="150px">&nbsp;</td>
+            <td width="20px"><strong>Cargo:</strong></td>
+            <td width="100px">{{rol[0].cargoEmp}}</td>
+            
+        </tr>
+    </table>
+</div> 
+ <h1>&nbsp;&nbsp;</h1>
+ 
+<div>
+<table border="0"; width="300px">
+        <tr>
+            <td width="150px"> &nbsp;</td>
+            <td width="150px"><strong>Sueldo:</strong></td>
+            <td width="100px">{{rol[0].sueldoEmp}}</td>
+            <td width="150px">&nbsp;</td>
+            <td width="150px"><strong>Anticipo tipo C:</strong></td>
+            <td width="100px">{{rol[0].anticipoTipoc}}</td>
+        </tr>
+
+        <tr>
+            <td width="150px"> &nbsp;</td>
+            <td width="80px"><strong>Fondos de reserva:</strong></td>
+            <td width="100px">{{rol[0].fondosRes}}</td>
+            <td width="150px">&nbsp;</td>
+            <td width="80px"><strong>Aporte IEES:</strong></td>
+            <td width="100px">{{rol[0].aporteIess}}</td>
+        </tr>
+
+         <tr>
+            <td width="150px"> &nbsp;</td>
+            <td width="80px"><strong>Decimo Tercero:</strong></td>
+            <td width="100px">{{rol[0].decimoTer}}</td>
+            <td width="150px">&nbsp;</td>
+            <td width="80px"><strong>Retenciòn Judicial:</strong></td>
+            <td width="100px">{{rol[0].retencionJud}}</td>
+        </tr>
+
+        <tr>
+            <td width="150px"> &nbsp;</td>
+            <td width="80px"><strong>Decimo Cuarto:</strong></td>
+            <td width="100px">{{rol[0].decimoCuar}}</td>
+            <td width="150px">&nbsp;</td>
+             <td width="80px"><strong>Quirografario IESS:</strong></td>
+            <td width="100px">{{rol[0].quirografarioIess}}</td>
+            
+        </tr>
+
+        <tr>
+            <td width="150px"> &nbsp;</td>
+            <td width="20px"><strong>Prestamo Hipotecario:</strong></td>
+            <td width="100px">{{rol[0].prestamoHipo}}</td>
+            <td width="150px">&nbsp;</td>
+            <td width="20px"><strong>Otros Descuentos:</strong></td>
+            <td width="100px">{{rol[0].otrosDes}}</td>
+        </tr>
+ </table>
+<table width=40% ; border="0"; width="300px">
+        <tr>
+             <td width="150px"> &nbsp;</td>
+            <td width="100px"><strong>Total Recibir:</strong></td>
+            <td width="100px">{%set suma=((rol[0].sueldoEmp+rol[0].fondosRes+rol[0].decimoTer+rol[0].decimoCuar)-(rol[0].anticipoTipoc+rol[0].aporteIess+rol[0].retencionJud+rol[0].quirografarioIess+rol[0].prestamoHipo+rol[0].otrosDes))%}
+      {{suma}}</td>
+        
+
+        
+    </table>
+</div>
+    <h1>&nbsp;</h1>
+    
+    <hr width=40%  align="right"  size=2 color="#0000">
+    <center><strong >Unidad de talento humano</strong></span></center>

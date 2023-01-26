@@ -1,0 +1,130 @@
+{% extends 'WsunBundle:Default:index.html.twig'%}
+{% block bloque1 %}
+<div class="box">
+    <div class="panel panel-azul">
+    <fieldest>
+    <div align="center">
+    <h3> <legend class="text-center header">Rol de Pago</legend></h3>
+  </div>
+<div>
+<table border="0"; aline="center"; width="300px"; >
+        <div  border="2";class="container-fluid">
+        <div class="row text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Fecha del rol de pago :</label>
+          <div class="col-sm-4 right" >{{ roldepago.fecha.date |date('Y-m-d')  }}</div>
+          <div class="col-sm-2"></div>
+        </div>
+
+        <div class="container-fluid">
+        <div class="row text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Fecha Pago:</label>
+          <div class="col-sm-4 right" >{{ roldepago.fechaPag.date |date('Y-m-d')  }}</div>
+          <div class="col-sm-2"></div>
+        </div>
+
+</table>
+<table border="0"; aline="center"; width="300px"; >
+        <div class="row   text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">sueldoEmp:</label>
+          <div class="col-sm-4 right" >{{ roldepago.sueldoEmp }}</div>
+          <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row   text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Fondos de reserva:</label>
+          <div class="col-sm-4 right" >{{ roldepago.fondosRes }}</div>
+          <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row   text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Decimo tercero:</label>
+          <div class="col-sm-4 right" >{{ roldepago.decimoTer }}</div>
+          <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row   text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Decimo cuarto:</label>
+          <div class="col-sm-4 right" >{{ roldepago.decimoCuar }}</div>
+          <div class="col-sm-2"></div>
+        </div>
+</table>
+<table border="0"; aline="center"; width="300px"; >
+        <div class="row   text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Aporte al Iess:</label>
+          <div class="col-sm-4 right" >{{ roldepago.aporteIess }}</div>
+          <div class="col-sm-2"></div>
+        </div>  
+
+        <div class="row   text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Quirografario Iess:</label>
+          <div class="col-sm-4 right" >{{ roldepago.quirografarioIess }}</div>
+          <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row   text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Anticipo Tipo C:</label>
+          <div class="col-sm-4 right" >{{ roldepago.anticipoTipoc }}</div>
+          <div class="col-sm-2"></div>
+        </div>  
+
+        <div class="row   text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Retencion Judicial:</label>
+          <div class="col-sm-4 right" >{{ roldepago.retencionJud }}</div>
+          <div class="col-sm-2"></div>
+        </div>  
+
+        <div class="row   text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Prestamos Hipotecario:</label>
+          <div class="col-sm-4 right" >{{ roldepago.prestamoHipo }}</div>
+          <div class="col-sm-2"></div>
+        </div>  
+
+        <div class="row   text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">Otros descuentos:</label>
+          <div class="col-sm-4 right" >{{ roldepago.otrosDes }}</div>
+          <div class="col-sm-2"></div>
+        </div>  
+
+</table>
+
+        <div class="row   text-justify">
+          <div class="col-sm-2"></div>
+          <label class="col-sm-4 control-label">total a Recibir:</label>
+          <div class="col-sm-4 right" >{%set suma=((roldepago.sueldoEmp+roldepago.fondosRes+roldepago.decimoTer+roldepago.decimoCuar)-(roldepago.aporteIess+roldepago.quirografarioIess+roldepago.anticipoTipoc+roldepago.retencionJud+roldepago.prestamoHipo+roldepago.otrosDes))%}
+      {{suma}}</div>
+          <div class="col-sm-2"></div>
+        </div>
+     
+</div>
+        <br>
+        <div class="row">
+     
+        <div class="col-md-4"><a href="{{ path('empleado_index') }}" ><i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i> Vuelva a la lista</a></div>
+        <div class="col-md-4"><a href="{{ path('roldepago_edit', { 'id': roldepago.id }) }}">Editar</a></div>
+        <div class="col-md-3">
+               <a href="{{ path('roldepago_pdf',{ 'id': roldepago.id }) }}" class=" btn btn-primary btn-sm">Imprimir en pdf</a> 
+            </div>
+
+    </fieldest>
+    
+      </div> </div> 
+{% endblock %}
+{% block javascripts %}
+    
+    <script>    
+  
+    </script>
+    
+{% endblock %}

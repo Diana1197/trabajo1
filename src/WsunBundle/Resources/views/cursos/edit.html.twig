@@ -1,0 +1,55 @@
+{% extends 'WsunBundle:Default:index.html.twig'%}
+
+{% block body %}
+
+    <div class="box">
+   <h3> <legend class="text-center header">Editar Curso</legend></h3>
+        <div class="container-fluid">
+    
+
+       {{ form_start(edit_form,{'class':"form-horizontal",'method':"POST"}) }}  
+       
+    <div class="form-group col-lg-6">
+         <div class="input-group-addon">{{ form_label(edit_form.tipo)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.tipo,{'attr':{'class':'form-control','placeholder':'Tipo'} }) }}
+    </div>  
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(edit_form.nombreCurso)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.nombreCurso,{'attr':{'class':'form-control','placeholder':'Nombre Curso'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(edit_form.institucion)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.institucion,{'attr':{'class':'form-control','placeholder':'Instituciòn'} }) }}
+    </div>
+
+     <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(edit_form.fechaIngreso)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.fechaIngreso,{'attr':{'class':'form-control','placeholder':'Fecha de Ingreso'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(edit_form.fechaFin)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.fechaFin,{'attr':{'class':'form-control','placeholder':'Fecha de Finanilaciòn'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(edit_form.duracion)}}<span class="text-danger">*</span></div>
+        {{ form_widget(edit_form.duracion,{'attr':{'class':'form-control','placeholder':'Duracion del curso'} }) }}
+    </div>
+
+
+     <div class="form-group col-lg-6">
+        <input type="submit" value="Editar" />
+         {{ form_end(edit_form) }}
+    </div> 
+
+        <table>
+
+        
+    <a href="{{ path('empleado_index') }}" ><i class="fa fa-camera-retro fa-lg" aria-hidden="true"></i> Vuelva a la lista</a></td></tr>
+    <br>
+            
+</table> 
+    </ul>
+{% endblock %}

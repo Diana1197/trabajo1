@@ -1,0 +1,152 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+   
+    - { resource: "@WsunBundle/Resources/config/services.yml" }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: es
+    imagesize1: 150
+    imagesize2: 300
+    limitePaginacion: 50
+    correo_remitente: carolyumbay@gmail.com
+    #your_root_path_parameter: /var/www/html/wsun/Documentos/Productos/
+framework:
+    #esi: ~
+    translator: { fallbacks: ['%locale%'] }
+    secret: '%secret%'
+    router:
+        resource: '%kernel.root_dir%/config/routing.yml'
+        
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
+    validation: { enable_annotations: true }
+    #serializer: { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale: '%locale%'
+    trusted_hosts: ~
+    trusted_proxies: ~
+    session:
+    
+        # handler_id set to null will use default session handler from php.ini nuevo para salir de sesion
+        handler_id:  ~
+        cookie_lifetime: 4500
+        gc_maxlifetime: 4500
+        
+        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id:  session.handler.native_file
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+    fragments: ~
+    http_method_override: true
+    assets: ~
+    php_errors:
+        log: true
+
+# Twig Configuration
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+       # driver:   pdo_mysql
+        host: '%database_host%'
+        port: '%database_port%'
+        dbname: '%database_name%'
+        user: '%database_user%'
+        password: '%database_password%'
+        charset: UTF8
+        # if using pdo_sqlite as your database driver:
+        #   1. add the path in parameters.yml
+        #     e.g. database_path: "%kernel.root_dir%/../var/data/data.sqlite"
+        #   2. Uncomment database_path in parameters.yml.dist
+        #   3. Uncomment next line:
+        #path: '%database_path%'
+
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+# Swiftmailer Configuration
+
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    #java: /usr/bin/java
+    filters:
+        less:
+            node: /usr/bin/node
+            node_paths: [/usr/lib/node_modules]
+            #apply_to: "\.less$"
+        cssrewrite: ~
+
+
+# liip_imagine Configuration
+liip_imagine :
+    
+    loaders:
+        default:
+            filesystem:
+                data_root: 
+                     - "%kernel.root_dir%/../web/"
+                #"%kernel.root_dir%/../Documentos/Productos"
+               
+    # configure resolvers
+    resolvers :
+        # setup the default resolver
+        default :
+            # use the default web path
+            web_path : ~
+            
+    # your filter sets are defined here
+    filter_sets :
+        # use the default cache configuration
+        cache : ~
+        # the name of the "filter set"
+        my_special_style:
+            data_loader: my_custom_data_loader
+        my_thumb :
+            cache: ~ 
+            # %kernel.root_dir%/../web
+             
+            # adjust the image quality to 75%
+            quality : 75
+            # list of transformations to apply (the "filters")
+            filters :
+                # create a thumbnail: set size to 120x90 and use the "outbound" mode
+                # to crop the image when the size ratio of the input differs
+                thumbnail  : { size : [120, 90], mode : outbound }
+                # create a 2px black border: center the thumbnail on a black background
+                # 4px larger to create a 2px border around the final image
+                background : { size : [124, 94], position : center, color : '#000000' }
+ 
+knp_paginator:
+    page_range: 10                      # rango por defecto de paginas en los controles del paginador
+    default_options:
+        page_name: page                # nombre del parámetro de la URL para la página
+        sort_field_name: sort          # nombre del parámetro de la URL para la ordenación
+        sort_direction_name: direction # nombre del parámetro de la URL para la dirección(ASC o DESC)
+        distinct: true                 # Garantizar resultados distintos
+    template:
+        pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig  # plantilla controles
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # 
+# pasar un archivo html a a pdf
+knp_snappy:
+    pdf:
+        enabled:    true
+        
+        #binary:      "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\"" windows
+        binary:     '../wkhtmltopdf'
+        #binary:     '/home/sumecorcom/public_html/wkhtmltopdf'
+        options:    []
+    image:
+        enabled:    true
+        binary:     'wkhtmltoimage'
+        options:    []

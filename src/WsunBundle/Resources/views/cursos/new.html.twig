@@ -1,0 +1,63 @@
+{% extends 'WsunBundle:Default:index.html.twig'%}
+
+
+    {% block body %}
+  
+  <div class="box">
+    <h1>Crear nuevo Curso</h1>
+
+        {{ form_start(form) }}
+
+    <div class="form-group col-lg-6">
+    <div class="input-group-addon">{{ form_label(form.tipo)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.tipo,{'attr':{'class':'form-control','placeholder':'Tipo'} }) }}
+    </div> 
+     
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.nombreCurso)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.nombreCurso,{'attr':{'class':'form-control','placeholder':'Nombre de Curso'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.institucion)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.institucion,{'attr':{'class':'form-control','placeholder':'Institución'} }) }}
+    </div>
+
+     <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.fechaIngreso)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.fechaIngreso,{'attr':{'class':'form-control','placeholder':'Fecha de Ingreso  '} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.fechaFin)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.fechaFin,{'attr':{'class':'form-control','placeholder':'Fecha de Finalizacion'} }) }}
+    </div>
+
+    <div class="form-group col-lg-6">
+        <div class="input-group-addon">{{ form_label(form.duracion)}}<span class="text-danger">*</span></div>
+        {{ form_widget(form.duracion,{'attr':{'class':'form-control','placeholder':'Duraciòn del curso'} }) }}
+    </div>
+      
+
+     {{ form_widget(form) }}
+        <input type="submit" value="Crear" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('cursos_index', { 'id': id }) }}">Volver al listado</a>
+        </li>
+    </ul>
+
+    {% endblock %}
+
+  {% block javascripts %}
+      {{ parent() }}
+<script type="text/javascript">
+   
+     $(window).ready(function(){
+         
+      
+    }); 
+ </script>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'WsunBundle:Default:index.html.twig'%}
+
+{% block bloque1 %}
+<div class="box">
+<div class="panel panel-azul">
+
+<fieldset>
+             <div class="panel-heading">
+                <strong><span>Lista de Titulos</span></strong>
+            </div> 
+            <div class="count">
+                <span class="label label-primary">
+               Total: {{ pagination.getTotalItemCount }}
+                </span>
+            </div><br/>
+             <table class="table table-bordered">
+            <tr>
+
+            <th>{{ knp_pagination_sortable(pagination, 'N°', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Instituciòn', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Nombre del tìtulo', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Fecha de aprobacion', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Observaciòn', '') }}</th>
+            <th>{{ knp_pagination_sortable(pagination, 'Acciones', '') }}</th>
+
+            </tr>
+        <tbody>
+        {% set contador= 1%}
+        {% for titulo in pagination %}
+        <tr {% if loop.index is odd %}class="color"{% endif %}>
+        <td>{{ contador }}</td>
+
+{#              <td><a href="{{ path('titulo_show', { 'id': titulo.id }) }}">{{ titulo.id }}</a></td>#}
+                <td>{{ titulo.instucion }}</td>
+                <td>{{ titulo.nombretitulo }}</td>
+                <td>{% if titulo.fechaaprobacion %}{{ titulo.fechaaprobacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ titulo.observacion }}{{empleado.id}}</td>
+               
+                <td>
+                        <div class="row">
+                        <div class="col-md-3">
+                        <a href="{{ path('titulo_show', { 'id': titulo.id }) }}">Mostrar</a>
+                        </div>
+                         <div class="col-sm-3">
+                         <a href="{{ path('titulo_edit', { 'id': titulo.id }) }}">Editar</a>
+                         
+                        </div>
+                       
+                </td>
+             {% set contador= contador+1%}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+          <a href="{{ path('titulo_new', { 'id': id }) }}"> <span class="glyphicon glyphicon-file"> Nuevo titulo</span></a>
+    </div> </div>       
+        </li>
+    </ul>
+{% endblock %}
+{% block javascripts %}
+   
+    <script>    
+    $('#btn1').on("click",function(){
+        
+    });
+    </script>
+    {% endblock %}
+
